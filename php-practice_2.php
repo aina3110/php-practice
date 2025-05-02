@@ -1,5 +1,5 @@
 <?php
-// Q1 tic-tac問題
+// ＊Q1 tic-tac問題
 foreach (range(1, 100) as $num){
   if($num % 4 === 0){
       echo 'tic' . "\n";
@@ -7,6 +7,17 @@ foreach (range(1, 100) as $num){
       echo 'tac' . "\n";
   }elseif($num % 4 === 0 && $num % 5 === 0){
       echo 'tic-tac' . "\n";
+  }else
+      echo $num . "\n";
+  }
+  //→修正
+  for ($num = 0; $num <= 100; $num++) {
+    if($num % 4 === 0 && $num % 5 === 0){
+      echo 'tic-tac' . "\n";
+  }elseif($num % 5 === 0){
+      echo 'tac' . "\n";
+  }elseif($num % 4 === 0){
+      echo 'tic' . "\n";
   }else
       echo $num . "\n";
   }
@@ -21,18 +32,18 @@ foreach($personalInfos as $index => $person){
   echo $number .'番目の'. $person['name'] .'さんのメールアドレスは' . $person['mail'] .'で、電話番号は' . $person['tel'] .'です。' . "\n";
 }
 
-//問題3
+//＊問題3
 $ageList = [25, 30, 18];
 foreach($personalInfos as $index => &$person){
     $person['age'] = $ageList[$index];
 }
 var_dump($personalInfos);
 
-// Q3 オブジェクト-1
+// ＊Q3 オブジェクト-1
 $saito = new Student(170,'斉藤',);
 echo '学籍番号' . $saito->studentId .'番の生徒は' .$saito->studentName .'です。';
 
-// Q4 オブジェクト-2
+// ＊Q4 オブジェクト-2
 {
   public $studentId;
   public $studentName;
@@ -52,7 +63,7 @@ $yamada = new Student(120, '山田');
 $yamada->attend('PHP');
 echo $yamada->studentName .'は'. $yamada->attend('PHP') .'学籍番号は' . $yamada->studentId .'です。';
 
-// Q5 定義済みクラス
+// Q5 ＊定義済みクラス
 //問題1
 $date = new DateTime();
 $date->modify('+1month');

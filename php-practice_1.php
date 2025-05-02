@@ -12,9 +12,8 @@ date_default_timezone_set('japan');
 $today = date("Y年m月d日 H時i分s秒");
 echo '現在時刻は' . $today . 'です。';
 
-// Q4 条件分岐-1 if文
+// ＊Q4 条件分岐-1 if文
 $device = 'mac';
-
 if ($device === 'windows'){
     echo '使用OSは、windowsです。';
     }else{
@@ -22,6 +21,13 @@ if ($device === 'windows'){
     echo '使用OSは、macです。';
     }else
     echo 'どちらでもありません。';
+    }
+//→ifとelse一個ずつ
+$device = 'mac'; 
+if($device === 'windows' || $device === 'mac'){
+    echo '使用OSは' . $device . 'です。';
+    }else{
+    echo 'どちらでもありません。';   
     }
 
 // Q5 条件分岐-2 三項演算子
@@ -32,8 +38,13 @@ if ($age < 18){
     $message = '成人です。';
 }
 echo $message;
+//→三項演算子でかく、if禁止
+$age = 28;
+$message = ($age > 18) ? '成人です。' : '未成年です。';
+echo $message;
 
-// Q6 配列
+
+// ＊Q6 配列
 $prefecture = ['東京都', '埼玉県', '神奈川県', '栃木県', '千葉県', '群馬県', '茨城県'];
 echo $prefecture[3] . 'と' .$prefecture[4] .'は関東地方の都道府県です。';
 
@@ -63,7 +74,7 @@ foreach ($capital as $prefecture => $city) {
   
 }
 
-// Q9 連想配列-3
+// ＊Q9 連想配列-3
 $capital['北海道'] = '札幌市';
 $capital['沖縄県'] = '那覇市';
 
@@ -76,6 +87,17 @@ foreach ($capital as $prefecture => $city) {
         echo $prefecture . 'は関東地方ではありません。' . "\n";
     }
 }
+//→$kanto使用しない
+$capital['北海道'] = '札幌市';
+$capital['沖縄県'] = '那覇市';
+foreach ($capital as $prefecture => $city) {
+    if($prefecture === '東京都' || '神奈川県' || '千葉県' || '栃木県' || '群馬県' ||'茨城県'){
+        echo $prefecture . 'の県庁所在地は、' . $city . 'です。' . "\n";
+    }else{
+        echo $prefecture . 'は関東地方ではありません。' . "\n";
+    }
+}
+
 
 // Q10 関数-1
 function hello($name)
@@ -86,7 +108,7 @@ function hello($name)
 echo hello('斉藤');
 echo hello('小張');
 
-// Q11 関数-2
+// ＊Q11 関数-2
 function calcTaxInPrice($price)
 {
     return $price . '円の商品の税込価格は' . $price*1.1 . '円です。';
