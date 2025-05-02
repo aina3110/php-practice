@@ -33,6 +33,23 @@ $saito = new Student(170,'斉藤',);
 echo '学籍番号' . $saito->studentId .'番の生徒は' .$saito->studentName .'です。';
 
 // Q4 オブジェクト-2
+{
+  public $studentId;
+  public $studentName;
+
+  public function __construct($id, $name)
+  {
+      $this->studentId = $id;
+      $this->studentName = $name;
+  }
+
+  public function attend($subject)
+  {
+      return $subject . 'の授業に出席しました。';
+  }
+}
+$yamada = new Student(120, '山田');
+$yamada->attend('PHP');
 echo $yamada->studentName .'は'. $yamada->attend('PHP') .'学籍番号は' . $yamada->studentId .'です。';
 
 // Q5 定義済みクラス
